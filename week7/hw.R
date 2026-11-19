@@ -24,3 +24,25 @@ for (status in unique(titanic_df$Survived)) {
 }
 
 par(mfrow = c(1, 1))
+
+
+boxplot(
+  Freq ~ Survived,
+  data = titanic_df,
+  main = "Frequency by Survival Status",
+  xlab = "Survived",
+  ylab = "Frequency",
+  col = c("tomato", "lightgreen")
+)
+
+numeric_df <- data.frame(
+  Class = as.numeric(titanic_df$Class),
+  Freq = titanic_df$Freq
+)
+
+pairs(
+  numeric_df,
+  main = "Pair Plot of Numeric Titanic Variables",
+  col = "steelblue",
+  pch = 19
+)
